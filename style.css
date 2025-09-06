@@ -33,6 +33,7 @@ h1{
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+background-color: rgba(0, 0, 0, 0.7);
 }
 
 .logo {
@@ -54,12 +55,29 @@ body {
 }
 
 header {
-  background: linear-gradient(to right, #181616, #181616);
+
+  /* Fondo con imagen transparente */
+  background-image: url('Images/coaching-en-trabajo-wide.jpg'); /* tu imagen PNG con transparencia */
+  background-size: cover;       /* ajusta la imagen al tamaño del header */
+  background-repeat: no-repeat; /* no repetir la imagen */
+  background-position: relative;  /* centra la imagen */
+  
+  /* Opcional: overlay para mejorar contraste */
+  position: relative;
   color: white;
   padding: 2rem;
   text-align: center;
   font-family: 'Pacifico', cursive;
 }
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* capa semitransparente negra */
+  z-index: -1; /* detrás del contenido */
+}
+
 
 nav {
   background: #0f0f0f;
@@ -725,4 +743,19 @@ blockquote {
 
 .volver:hover {
   text-decoration: underline;
+}
+
+.center-image {
+  position: fixed;           /* Se queda fija en la pantalla */
+  top: 50%;                  /* Centra verticalmente */
+  left: 50%;                 /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta el centro exacto */
+  z-index: 9999;             /* Encima de otros elementos */
+  pointer-events: none;      /* No bloquea clics */
+  opacity: 0.5;              /* Transparencia */
+}
+
+.center-image img {
+  max-height: 25vh;   /* Ajusta tamaño relativo a la pantalla */
+  width: auto;        /* Mantiene proporción */
 }
